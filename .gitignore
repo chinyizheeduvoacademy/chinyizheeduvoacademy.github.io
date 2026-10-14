@@ -1,0 +1,24 @@
+# Secrets never belong in this repo
+*.env
+.env
+*.key
+.nvd_key
+.cf_token
+.supabase_env
+.webhook
+**/staging/
+**/*.tsv
+**/*.csv
+**/*.jsonl
+**/*.gz
+nvd_checkpoint.json
+*.checkpoint.json
+supabase_cluster.json
+telegram_bot.log
+telegram_bot.pid
+*.log
+clickhouse-api-key*
+github-recovery*
+.wrangler/
+.cloudflare/
+__pycache__/

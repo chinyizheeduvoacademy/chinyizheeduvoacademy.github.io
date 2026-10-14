@@ -1,0 +1,1978 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <title>LvxPaths — Free &amp; Curated Cybersecurity Roadmaps</title>
+  <meta name="description" content="Structured, bite-sized cybersecurity roadmaps aggregating official free resources. Zero paywalls, zero-login progress, modern AI &amp; offensive security tracks.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="theme-color" content="#080c14">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="LvxPaths — Free Cybersecurity Roadmaps">
+  <meta property="og:description" content="Curated roadmaps through verified security resources. 100% Free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lvxcloudevs.me/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #080c14;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(22, 33, 58, 0.75);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(16, 185, 129, 0.35);
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.18);
+      --primary-dim: rgba(16, 185, 129, 0.1);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --rose: #f43f5e;
+      --rose-dim: rgba(244, 63, 94, 0.12);
+      --amber: #f59e0b;
+      --amber-dim: rgba(245, 158, 11, 0.12);
+      --blue: #38bdf8;
+      --blue-dim: rgba(56, 189, 248, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .fs-mono { font-family: 'Geist Mono', monospace; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 12, 20, 0.85);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-dim);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 16px;
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+    .logo-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: inline-block;
+      opacity: 0.8;
+    }
+    .sub-tag {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: none;
+    }
+    @media (min-width: 640px) {
+      .sub-tag { display: inline-block; }
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .nav-btn {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.15s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn:hover { color: var(--text); }
+    .nav-btn.active { color: var(--primary); font-weight: 600; }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 20px 64px 20px;
+    }
+
+    /* Hero Section — 2-Column Asymmetric Layout */
+    .hero-card {
+      background: radial-gradient(circle at 85% 30%, rgba(34, 197, 94, 0.08) 0%, rgba(10, 16, 12, 0.95) 70%), #070b08;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: var(--radius-xl);
+      padding: 36px 24px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 32px;
+      backdrop-filter: blur(12px);
+    }
+    .hero-hex-bg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 420px;
+      height: 420px;
+      opacity: 0.16;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 0L56 16.18V49.5L28 65.68 0 49.5V16.18z' fill='none' stroke='%23bef264' stroke-width='0.6'/%3E%3Cpath d='M28 50.32L56 66.5V99.82L28 116 0 99.82V66.5z' fill='none' stroke='%23bef264' stroke-width='0.6'/%3E%3C/svg%3E");
+      background-size: 56px 100px;
+      mask-image: radial-gradient(circle at bottom right, black, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at bottom right, black, transparent 75%);
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    @media (min-width: 960px) {
+      .hero-card { padding: 56px 48px; }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.35fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+    }
+    .hero-left {
+      text-align: left;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(190, 242, 100, 0.3);
+      color: #bef264;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 22px;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    @media (min-width: 640px) {
+      .hero-title { font-size: 3.4rem; }
+    }
+    .hero-title .highlight-lime {
+      color: #bef264;
+      -webkit-text-fill-color: #bef264;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin-bottom: 24px;
+      max-width: 580px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #bef264;
+      color: #0d1904;
+      box-shadow: 0 4px 20px rgba(190, 242, 100, 0.25);
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #d9f99d;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(190, 242, 100, 0.35);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+    .hero-byline {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .hero-byline .byline-author {
+      color: #bef264;
+      font-weight: 600;
+    }
+
+    /* Terminal Widget */
+    .hero-terminal {
+      background: #060b08;
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 35px -10px rgba(34, 197, 94, 0.15);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .terminal-header {
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .terminal-dots .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #eab308; }
+    .dot-green { background: #22c55e; }
+    .terminal-title {
+      color: #64748b;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+    .terminal-body {
+      padding: 16px 20px;
+    }
+    .term-line {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .term-prompt {
+      color: #bef264;
+      font-weight: bold;
+    }
+    .term-cmd {
+      color: #f1f5f9;
+      font-weight: 500;
+    }
+    .term-table {
+      margin: 4px 0 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .term-row {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      align-items: center;
+    }
+    .term-dim {
+      color: #64748b;
+    }
+    .term-val {
+      color: #cbd5e1;
+    }
+    .term-lime {
+      color: #bef264;
+      font-weight: 600;
+    }
+    .term-spacer {
+      margin-top: 14px;
+    }
+    .term-sub {
+      margin-left: 18px;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      margin-bottom: 3px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .term-arrow {
+      color: #bef264;
+    }
+    .term-cursor-line {
+      margin-top: 8px;
+      margin-left: 18px;
+    }
+    .term-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: #bef264;
+      vertical-align: middle;
+      animation: termBlink 1s infinite;
+    }
+    @keyframes termBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+
+    /* Search & Filter Bar */
+    .search-section {
+      margin-bottom: 32px;
+    }
+    .search-box-wrap {
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .search-box-wrap i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 15px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 14px 18px 14px 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    }
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      padding: 6px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .chip:hover, .chip.active {
+      background: var(--primary-dim);
+      color: var(--primary);
+      border-color: var(--border-accent);
+    }
+
+    /* Stats Overview Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      .stats-bar { grid-template-columns: repeat(4, 1fr); }
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .stat-val.accent { color: var(--primary); }
+
+    /* Roadmaps Section Header */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Path Cards Grid */
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 640px) {
+      .paths-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .paths-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .path-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .path-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 20px rgba(16, 185, 129, 0.08);
+    }
+    .path-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .path-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--primary-dim);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 20px;
+      box-shadow: 0 0 14px var(--primary-glow);
+    }
+    .path-badges-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .badge-offsec {
+      background: var(--rose-dim);
+      color: var(--rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .badge-ai {
+      background: var(--primary-dim);
+      color: var(--primary);
+      border: 1px solid var(--border-accent);
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .path-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .path-card-blurb {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .path-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .path-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .path-card-footer span.cta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+    }
+
+    /* Circular Progress Ring */
+    .progress-circle {
+      position: relative;
+      width: 44px;
+      height: 44px;
+    }
+    .progress-circle svg {
+      width: 44px;
+      height: 44px;
+      transform: rotate(-90deg);
+    }
+    .progress-circle circle {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    .progress-circle .bg-circle {
+      stroke: rgba(255, 255, 255, 0.08);
+    }
+    .progress-circle .meter-circle {
+      stroke: var(--primary);
+      transition: stroke-dashoffset 0.4s ease;
+    }
+    .progress-circle .circle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Geist Mono', monospace;
+    }
+
+    /* Path Detail View */
+    .detail-view {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      margin-bottom: 24px;
+      transition: color 0.15s;
+    }
+    .back-btn:hover { color: var(--primary); }
+
+    .detail-header-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .detail-header-card { padding: 40px; }
+    }
+    .detail-head-top {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .detail-head-top {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+    .detail-info {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      max-width: 720px;
+    }
+    .detail-icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-lg);
+      background: var(--primary-dim);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 26px;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+    .detail-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .detail-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .detail-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 24px;
+    }
+    @media (min-width: 640px) {
+      .detail-metrics-row { grid-template-columns: repeat(4, 1fr); }
+    }
+    .detail-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .detail-metric-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+    }
+    .detail-metric-val {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .detail-metric-val.accent { color: var(--primary); }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      margin-top: 20px;
+    }
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+    .progress-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Milestones / Items list */
+    .items-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      transition: all 0.2s;
+    }
+    .item-card.is-done {
+      border-color: rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.03);
+    }
+    .item-top-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .item-idx {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-weight: 700;
+      padding-top: 2px;
+      width: 24px;
+    }
+    .checkbox-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: transparent;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .checkbox-btn:hover {
+      border-color: var(--primary);
+      color: rgba(16, 185, 129, 0.5);
+    }
+    .item-card.is-done .checkbox-btn {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #062b1e;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+    .item-content {
+      flex: 1;
+    }
+    .item-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .item-card.is-done .item-title {
+      color: var(--text-dim);
+      text-decoration: line-through;
+      text-decoration-color: var(--primary);
+    }
+    .item-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      margin-bottom: 10px;
+    }
+    .item-badge {
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .item-badge.provider {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-weight: 600;
+    }
+    .item-badge.beginner {
+      background: var(--primary-dim);
+      color: var(--primary);
+      border-color: var(--border-accent);
+    }
+    .item-badge.intermediate {
+      background: var(--amber-dim);
+      color: var(--amber);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+    .item-badge.advanced {
+      background: var(--rose-dim);
+      color: var(--rose);
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+
+    .free-note {
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      color: #a7f3d0;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .item-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .lesson-toggle-btn {
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .lesson-toggle-btn:hover {
+      background: var(--primary-dim);
+      color: var(--primary);
+      border-color: var(--border-accent);
+    }
+    .external-link-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .external-link-btn:hover {
+      background: var(--primary-dim);
+      border-color: var(--border-accent);
+      color: var(--primary);
+    }
+
+    /* Expandable Study Guide Drawer */
+    .study-drawer {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      background: rgba(8, 12, 20, 0.8);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+    .study-drawer h5 {
+      color: var(--primary);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .study-drawer .drawer-grid {
+      display: grid;
+      gap: 12px;
+    }
+    @media (min-width: 640px) {
+      .study-drawer .drawer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .drawer-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Self-hosted Lab Launcher */
+    .lab-launch-btn {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(190, 242, 100, 0.4);
+      color: #bef264;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .lab-launch-btn:hover {
+      background: rgba(190, 242, 100, 0.2);
+      border-color: #bef264;
+      color: #fff;
+    }
+    .lab-drawer {
+      margin-top: 14px;
+      background: rgba(6, 11, 8, 0.95);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    .lab-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .lab-panel-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #bef264;
+    }
+    .lab-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #bef264;
+      box-shadow: 0 0 8px #bef264;
+    }
+    .lab-source-tag {
+      color: var(--text-dim);
+      font-size: 0.68rem;
+    }
+    .lab-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+    .lab-close-btn:hover { color: #fff; }
+    .lab-timer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .lab-timer {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .lab-btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 0.78rem;
+    }
+    .lab-url-box {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.76rem;
+      color: #94a3b8;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 8px;
+    }
+    .lab-disclaimer {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* About Curator View */
+    .about-view {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 40px 24px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(16px);
+    }
+    @media (min-width: 640px) {
+      .about-card { padding: 48px; }
+    }
+    .about-grid {
+      display: grid;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: auto 1fr; }
+    }
+    .curator-avatar-box {
+      width: 88px;
+      height: 88px;
+      border-radius: var(--radius-xl);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 2rem;
+      margin: 0 auto;
+    }
+    .badge-curator {
+      background: var(--primary-dim);
+      color: var(--primary);
+      border: 1px solid var(--border-accent);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .about-prose {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .about-prose p { margin-bottom: 16px; }
+    .about-prose strong { color: #fff; }
+    .about-prose a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: rgba(8, 12, 20, 0.95);
+      padding: 36px 20px;
+      margin-top: auto;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .footer-disclaimer {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      max-width: 620px;
+      line-height: 1.5;
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .footer-links a:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="#/" class="logo-area">
+          <div class="logo-badge">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <div class="logo-text">
+              LvxPaths
+              <span class="status-dot"></span>
+            </div>
+          </div>
+        </a>
+        <span class="sub-tag">100% Free · Curated</span>
+      </div>
+
+      <nav>
+        <a href="#/" class="nav-btn active" id="nav-roadmaps">
+          <i class="fa-solid fa-compass"></i> Roadmaps
+        </a>
+        <a href="#/about" class="nav-btn" id="nav-about">
+          <i class="fa-solid fa-user-ninja"></i> About
+        </a>
+        <a href="https://github.com/chinyizheeduvoacademy/chinyizheeduvoacademy.github.io" target="_blank" rel="noopener noreferrer" class="nav-btn">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME VIEW -->
+    <div id="home-view">
+      <!-- Hero -->
+      <section class="hero-card">
+        <div class="hero-hex-bg" aria-hidden="true"></div>
+        <div class="hero-grid">
+          <!-- Left Column: Mission & CTA -->
+          <div class="hero-left">
+            <div class="hero-pill">
+              <i class="fa-solid fa-shield-halved"></i> 100% Free &amp; Curated Roadmaps
+            </div>
+            <h1 class="hero-title">
+              Master Modern Security.<br><span class="highlight-lime">Step by Step.</span>
+            </h1>
+            <p class="hero-desc">
+              No $300 bootcamps. No hidden paywalls. Bite-sized guided roadmaps across AI security, red teaming, web pentesting, and Linux privesc — saved directly in your browser.
+            </p>
+            <div class="hero-actions">
+              <a href="#all-paths" class="btn btn-primary">
+                <i class="fa-solid fa-play"></i> Start Learning
+              </a>
+              <a href="#/about" class="btn btn-secondary">
+                <i class="fa-regular fa-heart"></i> Why This Is Free
+              </a>
+            </div>
+            <p class="hero-byline">
+              Curated by <span class="byline-author">Chin Yi Zhe</span> · Eduvo Academy Alumni · Kuala Lumpur
+            </p>
+          </div>
+
+          <!-- Right Column: Interactive Terminal Widget -->
+          <div class="hero-terminal" aria-label="Terminal status widget">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">&gt;_ LVXPATHS</div>
+            </div>
+            <div class="terminal-body">
+              <div class="term-line">
+                <span class="term-prompt">$</span> <span class="term-cmd">lvxpaths status</span>
+              </div>
+              <div class="term-table">
+                <div class="term-row">
+                  <span class="term-dim">rank</span>
+                  <span class="term-val term-lime" id="term-rank">Script Kiddie</span>
+                </div>
+                <div class="term-row">
+                  <span class="term-dim">completed</span>
+                  <span class="term-val"><span id="term-completed">0</span> / <span id="term-total">65</span></span>
+                </div>
+                <div class="term-row">
+                  <span class="term-dim">to_next</span>
+                  <span class="term-val" id="term-tonext">6 &rarr; Noob</span>
+                </div>
+              </div>
+              <div class="term-line term-spacer">
+                <span class="term-prompt">$</span> <span class="term-cmd">lvxpaths track exploit-writing</span>
+              </div>
+              <div class="term-sub">
+                <span class="term-arrow">&rarr;</span> 8 milestones · 60h est
+              </div>
+              <div class="term-sub">
+                <span class="term-arrow">&rarr;</span> LiveOverflow · Phrack · Corelan
+              </div>
+              <div class="term-cursor-line">
+                <span class="term-cursor"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Natural Language Search & Filter Bar -->
+      <section class="search-section">
+        <div class="search-box-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="catalog-search" class="search-input" placeholder="Search roadmap (e.g. 'Linux privesc', 'PortSwigger', 'Web bug bounty', 'CCNA', 'LLM attacks')...">
+        </div>
+        <div class="filter-chips">
+          <span class="chip active" data-filter="all">All Tracks</span>
+          <span class="chip" data-filter="offsec">OffSec Tracks</span>
+          <span class="chip" data-filter="ai">AI &amp; LLM Security</span>
+          <span class="chip" data-filter="beginner">Beginner Friendly</span>
+          <span class="chip" data-filter="labs">Hands-on Labs</span>
+          <span class="chip" data-filter="cloud">Cloud Security</span>
+        </div>
+      </section>
+
+      <!-- Personal Progress Stats Bar -->
+      <section class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-label"><i class="fa-solid fa-map"></i> Active Paths</div>
+          <div class="stat-val" id="stat-active-paths">0 / 11</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label"><i class="fa-solid fa-circle-check"></i> Completed</div>
+          <div class="stat-val accent" id="stat-completed-items">0 / 65</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label"><i class="fa-solid fa-clock"></i> Hours Done</div>
+          <div class="stat-val" id="stat-hours-done">0 hrs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label"><i class="fa-solid fa-chart-pie"></i> Mastery Rate</div>
+          <div class="stat-val accent" id="stat-pct">0%</div>
+        </div>
+      </section>
+
+      <!-- Learning Paths Grid -->
+      <div id="all-paths">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">All Learning Roadmaps</h2>
+            <p class="section-subtitle">Choose your track. Check milestones off as you complete them. Progress saves instantly in localStorage.</p>
+          </div>
+        </div>
+        <div class="paths-grid" id="paths-container">
+          <!-- Dynamically injected from catalog.json -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PATH DETAIL VIEW -->
+    <div id="detail-view" class="detail-view">
+      <a href="#/" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back to all roadmaps
+      </a>
+
+      <section class="detail-header-card">
+        <div class="detail-head-top">
+          <div class="detail-info">
+            <div class="detail-icon-wrap" id="detail-icon">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <div>
+              <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:4px;">
+                Curated Roadmap
+              </div>
+              <h1 class="detail-title" id="detail-title">Path Title</h1>
+              <p class="detail-desc" id="detail-desc">Path description goes here.</p>
+            </div>
+          </div>
+          <div class="progress-circle" id="detail-progress-circle">
+            <svg>
+              <circle class="bg-circle" cx="22" cy="22" r="18"></circle>
+              <circle class="meter-circle" cx="22" cy="22" r="18" stroke-dasharray="113" stroke-dashoffset="113"></circle>
+            </svg>
+            <div class="circle-text">0%</div>
+          </div>
+        </div>
+
+        <div class="detail-metrics-row">
+          <div class="detail-metric">
+            <span class="detail-metric-label">Milestones</span>
+            <span class="detail-metric-val" id="detail-total-items">0</span>
+          </div>
+          <div class="detail-metric">
+            <span class="detail-metric-label">Est. Time</span>
+            <span class="detail-metric-val" id="detail-total-hours">0 hrs</span>
+          </div>
+          <div class="detail-metric">
+            <span class="detail-metric-label">Completed</span>
+            <span class="detail-metric-val accent" id="detail-completed-count">0 / 0</span>
+          </div>
+          <div class="detail-metric">
+            <span class="detail-metric-label">Remaining</span>
+            <span class="detail-metric-val" id="detail-remaining-hours">0 hrs</span>
+          </div>
+        </div>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-track">
+            <div class="progress-fill" id="detail-progress-fill" style="width: 0%;"></div>
+          </div>
+          <div class="progress-label-wrap">
+            <span id="detail-progress-pct-label">0% complete</span>
+            <button id="reset-path-btn" style="background:none; border:none; color:var(--text-dim); font-size:0.75rem; cursor:pointer;" onclick="resetPathProgress()">
+              <i class="fa-solid fa-rotate-left"></i> Reset progress
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-head">
+        <h3 class="section-title">Track Milestones</h3>
+        <span class="fs-mono" style="font-size:0.85rem; color:var(--text-muted);" id="detail-item-count-label">6 items</span>
+      </div>
+
+      <div class="items-container" id="items-container">
+        <!-- Dynamically injected items -->
+      </div>
+    </div>
+
+    <!-- ABOUT VIEW -->
+    <div id="about-view" class="about-view">
+      <a href="#/" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back to all roadmaps
+      </a>
+
+      <section class="about-card">
+        <div class="about-grid">
+          <div>
+            <div class="curator-avatar-box">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+            <div style="text-align:center; margin-top:14px;">
+              <span class="badge-curator">Eduvo Academy Alumni</span>
+            </div>
+            <div style="text-align:center; margin-top:10px; font-size:0.78rem; color:var(--text-dim);" class="fs-mono">
+              Chin Yi Zhe &bull; Kuala Lumpur
+            </div>
+          </div>
+
+          <div class="about-prose">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:4px;">
+              About The Curator
+            </div>
+            <h1 style="font-size:2.2rem; font-weight:800; color:#fff; margin-bottom:6px;">Chin Yi Zhe</h1>
+            <p style="color:var(--primary); font-size:0.95rem; margin-bottom:20px;">
+              Software Engineering &bull; Offensive Security Researcher
+            </p>
+
+            <p>
+              I studied for a Professional Diploma in Software Engineering at <a href="https://eduvoacademy.edu.my/" target="_blank" rel="noopener noreferrer">Eduvo Academy</a>. The academic promise was familiar: finish the coursework, land a mandatory six-month industry internship, and step straight into a junior engineering role.
+            </p>
+            <p>
+              <strong>That internship never happened. I never landed it.</strong> The pipeline collapsed, companies ghosted, and I discovered early that paper certificates without verifiable proof of work have zero currency in this industry.
+            </p>
+            <p>
+              To be completely transparent: <strong>I've been on both sides of the coin.</strong> I know how the underground works—the telegram leak groups, the grey-market brokers, and dark-web dumps. And I know how broken conventional computer science degrees are, charging students thousands of dollars for textbook theory while ignoring real adversarial mechanics. In the real world, nobody cares what school stamped your paper. They only care if you can reverse the binary, trace the execution chain, and discover the vulnerability before an adversary weaponizes it.
+            </p>
+            <p>
+              So I stopped waiting for an academic pipeline to validate me. Working from Kuala Lumpur, I focused on offensive security engineering—reverse engineering ARM surveillance firmware, finding and disclosing CVEs, and writing low-footprint tooling in Go and Python under <a href="https://github.com/chinyizheeduvoacademy" target="_blank" rel="noopener noreferrer">github.com/chinyizheeduvoacademy</a>.
+            </p>
+            <p>
+              The most liberating truth I learned was that <strong>every single resource that gave me real technical competence was 100% free and official</strong>: PortSwigger's Web Security Academy, OverTheWire Bandit, TCM's free TryHackMe rooms, LiveOverflow, and Jeremy's CCNA. The only barrier was knowing where to look and what sequence to follow without drowning in information overload.
+            </p>
+            <p>
+              <strong>LvxPaths</strong> is the open roadmap platform I needed when I had zero dollars, no internship, and a mountain of unorganized browser tabs. No paywalls, no mandatory logins, and zero corporate gatekeeping.
+            </p>
+
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:24px;">
+              <a href="https://github.com/chinyizheeduvoacademy" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <i class="fa-brands fa-github"></i> GitHub Profile
+              </a>
+              <a href="https://www.linkedin.com/in/chinjyzheed/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://github.com/chinyizheeduvoacademy/chinyizheeduvoacademy.github.io" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fa-solid fa-code-branch"></i> LvxPaths Repo
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Sticky Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-disclaimer">
+        <strong>LvxPaths</strong> is a non-commercial cybersecurity curation project. All materials belong to their respective creators. We only link to verified, official, free educational sources—never host, mirror, or proxy paid material.
+      </div>
+      <div class="footer-links">
+        <a href="#/">Roadmaps</a>
+        <a href="#/about">About</a>
+        <a href="https://github.com/chinyizheeduvoacademy" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/chinyizheeduvoacademy/chinyizheeduvoacademy.github.io" target="_blank" rel="noopener noreferrer">Source</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // State management
+    let catalog = null;
+    let progress = {};
+    const STORAGE_KEY = 'freesec_progress';
+
+    const ICONS_MAP = {
+      compass: 'fa-compass',
+      network: 'fa-network-wired',
+      terminal: 'fa-terminal',
+      monitor: 'fa-desktop',
+      globe: 'fa-globe',
+      shield: 'fa-shield-halved',
+      brain: 'fa-brain',
+      code: 'fa-code',
+      'search-code': 'fa-magnifying-glass-chart',
+      swords: 'fa-crosshairs',
+      cloud: 'fa-cloud'
+    };
+
+    // Load progress from localStorage
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        progress = raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        progress = {};
+      }
+    }
+
+    // Save progress to localStorage
+    function saveProgress() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      } catch (e) {}
+    }
+
+    // Toggle item completion
+    function toggleItem(itemId) {
+      if (progress[itemId]) {
+        delete progress[itemId];
+      } else {
+        progress[itemId] = new Date().toISOString();
+      }
+      saveProgress();
+      updateAllStats();
+      renderCurrentView();
+    }
+
+    // Reset path progress
+    function resetPathProgress() {
+      const hash = window.location.hash;
+      const pathId = hash.replace(/^#\/path\//, '');
+      if (!pathId || !catalog) return;
+
+      const itemsInPath = catalog.items.filter(i => i.path === pathId);
+      if (confirm(`Reset all progress in this roadmap?`)) {
+        itemsInPath.forEach(i => delete progress[i.id]);
+        saveProgress();
+        updateAllStats();
+        renderPathDetail(pathId);
+      }
+    }
+
+    // Fetch catalog.json
+    async function initCatalog() {
+      loadProgress();
+      try {
+        const res = await fetch('data/catalog.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        catalog = await res.json();
+        updateAllStats();
+        handleRouting();
+      } catch (err) {
+        console.error('Failed to load catalog:', err);
+        document.getElementById('paths-container').innerHTML = `
+          <div style="grid-column: 1/-1; text-align:center; padding: 40px; color: var(--rose);">
+            <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; margin-bottom: 12px;"></i>
+            <p>Could not load the roadmap catalog. Please check network connection.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Calculate completion stats
+    function calcStats() {
+      if (!catalog) return { activePaths: 0, completedItems: 0, totalHours: 0, hoursDone: 0, pct: 0 };
+      const completedIds = Object.keys(progress);
+      const completedItems = catalog.items.filter(i => i.id in progress);
+      const hoursDone = completedItems.reduce((acc, i) => acc + (i.hours_est || 0), 0);
+      const totalHours = catalog.items.reduce((acc, i) => acc + (i.hours_est || 0), 0);
+      const pct = Math.round((completedItems.length / catalog.items.length) * 100);
+
+      // Active paths: paths that have at least 1 completed item
+      const activePathIds = new Set(completedItems.map(i => i.path));
+
+      return {
+        activePaths: activePathIds.size,
+        completedItems: completedItems.length,
+        totalItems: catalog.items.length,
+        hoursDone,
+        pct
+      };
+    }
+
+    function updateAllStats() {
+      const s = calcStats();
+      const total = catalog ? (catalog.totalItems || catalog.items.length) : 65;
+      const elActive = document.getElementById('stat-active-paths');
+      const elCompleted = document.getElementById('stat-completed-items');
+      const elHours = document.getElementById('stat-hours-done');
+      const elPct = document.getElementById('stat-pct');
+
+      if (elActive) elActive.innerText = `${s.activePaths} / ${catalog ? catalog.paths.length : 11}`;
+      if (elCompleted) elCompleted.innerText = `${s.completedItems} / ${total}`;
+      if (elHours) elHours.innerText = `${s.hoursDone} hrs`;
+      if (elPct) elPct.innerText = `${s.pct}%`;
+
+      // Live Terminal Widget Updates
+      const termRankEl = document.getElementById('term-rank');
+      const termCompletedEl = document.getElementById('term-completed');
+      const termTotalEl = document.getElementById('term-total');
+      const termToNextEl = document.getElementById('term-tonext');
+
+      if (termCompletedEl) termCompletedEl.innerText = s.completedItems;
+      if (termTotalEl) termTotalEl.innerText = total;
+
+      if (termRankEl && termToNextEl) {
+        if (s.completedItems < 6) {
+          termRankEl.innerText = 'Script Kiddie';
+          termToNextEl.innerText = `${6 - s.completedItems} → Noob`;
+        } else if (s.completedItems < 18) {
+          termRankEl.innerText = 'Noob';
+          termToNextEl.innerText = `${18 - s.completedItems} → Practitioner`;
+        } else if (s.completedItems < 36) {
+          termRankEl.innerText = 'Practitioner';
+          termToNextEl.innerText = `${36 - s.completedItems} → OffSec`;
+        } else if (s.completedItems < 65) {
+          termRankEl.innerText = 'OffSec';
+          termToNextEl.innerText = `${65 - s.completedItems} → Root`;
+        } else {
+          termRankEl.innerText = 'Root';
+          termToNextEl.innerText = 'MAX RANK';
+        }
+      }
+    }
+
+    // Render Home Paths Grid
+    function renderPathsGrid(filter = 'all', searchQuery = '') {
+      if (!catalog) return;
+      const container = document.getElementById('paths-container');
+      container.innerHTML = '';
+
+      let paths = catalog.paths;
+
+      // Filter logic
+      if (filter === 'ai') {
+        paths = paths.filter(p => p.id === 'ai');
+      } else if (filter === 'offsec') {
+        paths = paths.filter(p => ['linux', 'windows', 'web', 'exploit-writing', 'reverse-engineering', 'red-teaming'].includes(p.id));
+      } else if (filter === 'cloud') {
+        paths = paths.filter(p => p.id === 'cloud');
+      }
+
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        paths = paths.filter(p => {
+          const matchTitle = p.name.toLowerCase().includes(q);
+          const matchBlurb = p.blurb.toLowerCase().includes(q);
+          const itemsInPath = catalog.items.filter(i => i.path === p.id);
+          const matchItem = itemsInPath.some(i => i.title.toLowerCase().includes(q) || i.tags.some(t => t.toLowerCase().includes(q)));
+          return matchTitle || matchBlurb || matchItem;
+        });
+      }
+
+      paths.forEach(p => {
+        const items = catalog.items.filter(i => i.path === p.id);
+        const doneCount = items.filter(i => i.id in progress).length;
+        const totalHours = items.reduce((acc, i) => acc + (i.hours_est || 0), 0);
+        const pct = items.length > 0 ? Math.round((doneCount / items.length) * 100) : 0;
+        const isOffsec = items.filter(i => i.offsec).length >= items.length * 0.4;
+        const isAi = p.id === 'ai' || items.some(i => i.ai_assisted);
+
+        const card = document.createElement('div');
+        card.className = 'path-card';
+        card.onclick = () => { window.location.hash = `#/path/${p.id}`; };
+
+        const iconClass = ICONS_MAP[p.icon] || 'fa-compass';
+        const circOffset = 113 - (113 * pct / 100);
+
+        card.innerHTML = `
+          <div class="path-card-top">
+            <div class="path-icon-wrap">
+              <i class="fa-solid ${iconClass}"></i>
+            </div>
+            <div class="path-badges-wrap">
+              ${isAi ? `<span class="badge-ai"><i class="fa-solid fa-sparkles"></i> AI Track</span>` : ''}
+              ${isOffsec && !isAi ? `<span class="badge-offsec"><i class="fa-solid fa-crosshairs"></i> OffSec</span>` : ''}
+              <div class="progress-circle">
+                <svg>
+                  <circle class="bg-circle" cx="22" cy="22" r="18"></circle>
+                  <circle class="meter-circle" cx="22" cy="22" r="18" stroke-dasharray="113" stroke-dashoffset="${circOffset}"></circle>
+                </svg>
+                <div class="circle-text">${pct}%</div>
+              </div>
+            </div>
+          </div>
+          <h3 class="path-card-title">${p.name}</h3>
+          <p class="path-card-blurb">${p.blurb}</p>
+          <div class="path-card-meta">
+            <span class="fs-mono">${items.length} milestones</span>
+            <span>&bull;</span>
+            <span class="fs-mono">${totalHours}h est</span>
+            ${doneCount > 0 ? `<span>&bull;</span><span class="fs-mono" style="color:var(--primary); font-weight:600;">${doneCount}/${items.length} done</span>` : ''}
+          </div>
+          <div class="path-card-footer">
+            <span>${doneCount > 0 ? 'Continue Roadmap' : 'Start Roadmap'}</span>
+            <span class="cta"><i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // Render Path Detail View
+    function renderPathDetail(pathId) {
+      if (!catalog) return;
+      const path = catalog.paths.find(p => p.id === pathId);
+      if (!path) {
+        window.location.hash = '#/';
+        return;
+      }
+
+      const items = catalog.items.filter(i => i.path === pathId);
+      const doneItems = items.filter(i => i.id in progress);
+      const totalHours = items.reduce((acc, i) => acc + (i.hours_est || 0), 0);
+      const remainingHours = items.filter(i => !(i.id in progress)).reduce((acc, i) => acc + (i.hours_est || 0), 0);
+      const pct = items.length > 0 ? Math.round((doneItems.length / items.length) * 100) : 0;
+
+      // Populate Header
+      document.getElementById('detail-title').innerText = path.name;
+      document.getElementById('detail-desc').innerText = path.blurb;
+      const iconWrap = document.getElementById('detail-icon');
+      iconWrap.innerHTML = `<i class="fa-solid ${ICONS_MAP[path.icon] || 'fa-compass'}"></i>`;
+
+      document.getElementById('detail-total-items').innerText = items.length;
+      document.getElementById('detail-total-hours').innerText = `${totalHours} hrs`;
+      document.getElementById('detail-completed-count').innerText = `${doneItems.length} / ${items.length}`;
+      document.getElementById('detail-remaining-hours').innerText = remainingHours > 0 ? `${remainingHours} hrs` : 'Completed!';
+
+      document.getElementById('detail-progress-fill').style.width = `${pct}%`;
+      document.getElementById('detail-progress-pct-label').innerText = `${pct}% complete`;
+      document.getElementById('detail-item-count-label').innerText = `${items.length} milestones`;
+
+      const circOffset = 113 - (113 * pct / 100);
+      const circElem = document.getElementById('detail-progress-circle');
+      circElem.querySelector('.meter-circle').style.strokeDashoffset = circOffset;
+      circElem.querySelector('.circle-text').innerText = `${pct}%`;
+
+      // Populate Items
+      const container = document.getElementById('items-container');
+      container.innerHTML = '';
+
+      items.forEach((item, index) => {
+        const isDone = item.id in progress;
+        const itemCard = document.createElement('div');
+        itemCard.className = `item-card ${isDone ? 'is-done' : ''}`;
+        itemCard.id = `item-card-${item.id}`;
+
+        const tagsHtml = item.tags.map(t => `<span class="item-badge">#${t}</span>`).join(' ');
+        const freeNoteHtml = item.free_note ? `
+          <div class="free-note">
+            <i class="fa-solid fa-gift"></i>
+            <span>${item.free_note}</span>
+          </div>
+        ` : '';
+
+        itemCard.innerHTML = `
+          <div class="item-top-row">
+            <div class="item-idx fs-mono">${String(index + 1).padStart(2, '0')}</div>
+            <button class="checkbox-btn" onclick="toggleItem('${item.id}')" title="${isDone ? 'Mark Incomplete' : 'Mark Complete'}">
+              <i class="fa-solid fa-check"></i>
+            </button>
+            <div class="item-content">
+              <h4 class="item-title">${item.title}</h4>
+              <div class="item-badges">
+                <span class="item-badge provider">${item.provider}</span>
+                <span class="item-badge ${item.level}">${item.level}</span>
+                <span class="item-badge">${item.type}</span>
+                ${item.hours_est > 0 ? `<span class="item-badge fs-mono"><i class="fa-regular fa-clock"></i> ${item.hours_est}h</span>` : ''}
+                ${item.offsec ? `<span class="badge-offsec"><i class="fa-solid fa-crosshairs"></i> OffSec</span>` : ''}
+                ${item.ai_assisted ? `<span class="badge-ai"><i class="fa-solid fa-sparkles"></i> AI</span>` : ''}
+                ${tagsHtml}
+              </div>
+              ${freeNoteHtml}
+              <div class="item-actions-row">
+                <button class="lesson-toggle-btn" onclick="toggleStudyDrawer('${item.id}')">
+                  <i class="fa-solid fa-file-lines"></i> Field Notes &amp; Strategy
+                </button>
+                ${item.lab ? `
+                <button class="lab-launch-btn" id="lab-btn-${item.id}" onclick="toggleLabLauncher('${item.id}')">
+                  <i class="fa-solid fa-flask"></i> ${item.lab.launch_text || 'Launch lab'}
+                </button>
+                ` : ''}
+              </div>
+            </div>
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="external-link-btn" title="Open official resource in new tab">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="study-drawer" id="study-drawer-${item.id}">
+            <h5><i class="fa-solid fa-compass"></i> Study Objective &amp; Strategy</h5>
+            <div class="drawer-grid">
+              <div class="drawer-box">
+                <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:4px;">Core Concept</div>
+                <div style="font-size:0.85rem; color:#fff;">Focus on understanding root causes, not memorizing exploits. Pay attention to how authorization headers or input boundaries interact.</div>
+              </div>
+              <div class="drawer-box">
+                <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:4px;">Execution Advice</div>
+                <div style="font-size:0.85rem; color:#fff;">Spend 30-45 mins hands-on trying without looking at hints. Keep an OffSec-style lab notebook with reproducible commands.</div>
+              </div>
+            </div>
+          </div>
+
+          ${item.lab ? `
+          <div class="lab-drawer" id="lab-drawer-${item.id}" style="display:none;">
+            <div class="lab-panel-header">
+              <div class="lab-panel-status">
+                <span class="lab-pulse-dot"></span>
+                <span class="lab-status-text" id="lab-status-${item.id}">Lab running</span>
+                <span class="lab-source-tag">sandbox</span>
+              </div>
+              <button class="lab-close-btn" onclick="toggleLabLauncher('${item.id}')">&times;</button>
+            </div>
+            <div class="lab-panel-body">
+              <div class="lab-timer-row">
+                <span class="lab-timer fs-mono" id="lab-timer-${item.id}"><i class="fa-regular fa-clock"></i> ${(item.lab.timeout_minutes || 120)}m 00s left</span>
+                <div class="lab-btn-group">
+                  <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Open lab
+                  </a>
+                  <button class="btn btn-secondary btn-sm" onclick="stopLabSession('${item.id}')">
+                    <i class="fa-solid fa-stop"></i> Stop
+                  </button>
+                </div>
+              </div>
+              <div class="lab-url-box fs-mono">${item.url}</div>
+              <p class="lab-disclaimer">
+                Sandbox mode — launches the official verified lab. In production with fly.io, this spins up an isolated Docker container that auto-stops when the timer reaches zero.
+              </p>
+            </div>
+          </div>
+          ` : ''}
+        `;
+
+        container.appendChild(itemCard);
+      });
+    }
+
+    function toggleStudyDrawer(itemId) {
+      const el = document.getElementById(`study-drawer-${itemId}`);
+      if (!el) return;
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    const activeLabTimers = {};
+
+    function toggleLabLauncher(itemId) {
+      const el = document.getElementById(`lab-drawer-${itemId}`);
+      if (!el) return;
+      const isVisible = el.style.display === 'block';
+      el.style.display = isVisible ? 'none' : 'block';
+
+      if (!isVisible && !activeLabTimers[itemId]) {
+        let secondsLeft = 120 * 60;
+        const timerEl = document.getElementById(`lab-timer-${itemId}`);
+        activeLabTimers[itemId] = setInterval(() => {
+          secondsLeft--;
+          if (secondsLeft <= 0) {
+            clearInterval(activeLabTimers[itemId]);
+            delete activeLabTimers[itemId];
+            if (timerEl) timerEl.innerHTML = '<i class="fa-regular fa-clock"></i> Expired';
+            const statusEl = document.getElementById(`lab-status-${itemId}`);
+            if (statusEl) statusEl.innerText = 'Lab expired';
+          } else {
+            const m = Math.floor(secondsLeft / 60);
+            const s = secondsLeft % 60;
+            if (timerEl) timerEl.innerHTML = `<i class="fa-regular fa-clock"></i> ${m}m ${String(s).padStart(2, '0')}s left`;
+          }
+        }, 1000);
+      }
+    }
+
+    function stopLabSession(itemId) {
+      if (activeLabTimers[itemId]) {
+        clearInterval(activeLabTimers[itemId]);
+        delete activeLabTimers[itemId];
+      }
+      const el = document.getElementById(`lab-drawer-${itemId}`);
+      if (el) el.style.display = 'none';
+    }
+
+    // Hash Router
+    function handleRouting() {
+      const hash = window.location.hash || '#/';
+      const homeView = document.getElementById('home-view');
+      const detailView = document.getElementById('detail-view');
+      const aboutView = document.getElementById('about-view');
+
+      const navRoadmaps = document.getElementById('nav-roadmaps');
+      const navAbout = document.getElementById('nav-about');
+
+      homeView.style.display = 'none';
+      detailView.style.display = 'none';
+      aboutView.style.display = 'none';
+      navRoadmaps.classList.remove('active');
+      navAbout.classList.remove('active');
+
+      if (hash.startsWith('#/path/')) {
+        const pathId = hash.replace(/^#\/path\//, '');
+        detailView.style.display = 'block';
+        navRoadmaps.classList.add('active');
+        renderPathDetail(pathId);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#/about') {
+        aboutView.style.display = 'block';
+        navAbout.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        homeView.style.display = 'block';
+        navRoadmaps.classList.add('active');
+        renderPathsGrid();
+      }
+    }
+
+    function renderCurrentView() {
+      const hash = window.location.hash || '#/';
+      if (hash.startsWith('#/path/')) {
+        const pathId = hash.replace(/^#\/path\//, '');
+        renderPathDetail(pathId);
+      } else if (hash === '#/' || hash === '') {
+        const activeFilter = document.querySelector('.chip.active')?.dataset?.filter || 'all';
+        const query = document.getElementById('catalog-search')?.value || '';
+        renderPathsGrid(activeFilter, query);
+      }
+    }
+
+    // Listeners
+    window.addEventListener('hashchange', handleRouting);
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        const query = document.getElementById('catalog-search').value;
+        renderPathsGrid(filter, query);
+      });
+    });
+
+    document.getElementById('catalog-search').addEventListener('input', (e) => {
+      const query = e.target.value;
+      const activeFilter = document.querySelector('.chip.active')?.dataset?.filter || 'all';
+      renderPathsGrid(activeFilter, query);
+    });
+
+    // Boot
+    window.addEventListener('DOMContentLoaded', initCatalog);
+  </script>
+</body>
+</html>
